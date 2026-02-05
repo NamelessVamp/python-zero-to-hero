@@ -1,6 +1,9 @@
 import os
 import time
 import json # <--- Nuevo: libreria para guardar archivos reales
+from colorama import init, Fore, Back, Style #<---- Nuevo Arsenal
+
+init(autoreset=True)
 
 ARCHIVO_DATOS = "player_data.json"
 
@@ -13,21 +16,21 @@ class Agente:
         self.xp_para_subir = 100
 
     def ganar_xp(self, cantidad):
-        print(f"\n[+] Ganaste {cantidad} XP!")
+        print(Fore.CYAN + f"\n[+] Ganaste {cantidad} XP!")
         self.xp += cantidad
 
         #Check de Nivel
         while self.xp >= self.xp_para_subir:
             self.xp -= self.xp_para_subir
             self.nivel += 1
-            print(f"LEVEL UP! Ahora eres nivel {self.nivel}")
-            print("Tu capacidad de procesamiento ha aumentado.")
+            print(Fore.GREEN + Style.BRIGHT + f"LEVEL UP! Ahora eres nivel {self.nivel}")
+            print(Fore.GREEN + "Tu capacidad de procesamiento ha aumentado.")
             time.sleep (1)
 
     def mostrar_status(self):
         barra = "█" * (self.xp //10) + "-" * ((100 - self.xp) //10)
-        print(f"\nAGENTE: {self.nombre} | LVL: {self.nivel}")
-        print(f"XP: [{barra}] {self.xp/100}")
+        print(f"\nAGENTE: {Fore.YELLOW}{self.nombre} {Style.RESET_ALL}| LVL: {Fore.GREEN}{self.nivel}")
+        print(f"XP: [{Fore.RED}{barra}] {self.xp/100}")
 
 # --- 2. FUNCIONES DE PERSISTENCIA (Guardar/Cargar) ---
 
