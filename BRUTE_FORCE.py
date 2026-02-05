@@ -14,7 +14,7 @@ for intento in range (1,11):
     # end=" " hace que no salte de linea, dando efecto de escaneo
     print(f"[LOG] Testing PIN: {intento:04d}...", end="")
     
-    time.sleep(3) # Pausa dramática para simular "procesamiento"
+    time.sleep(03) # Pausa dramática para simular "procesamiento"
 
     #LA DESICION DENTRO DEL LOOP
     if intento == target_pin:
