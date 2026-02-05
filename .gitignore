@@ -1,0 +1,14 @@
+# --- Python Artifacts ---
+__pycache__/
+*.pyc
+
+# --- VS Code Settings (Personal) ---
+.vscode/
+
+# --- Environment & Keys ---
+.env
+venv/
+env/
+
+# --- Logs ---
+*.log
